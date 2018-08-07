@@ -19,7 +19,6 @@ sub _carp {
     return warn @_, " at $file line $line\n";
 }
 
-use Test::More ();
 use Test::Builder::Module;
 our @ISA    = qw(Test::Builder::Module);
 our @EXPORT = qw(
@@ -53,7 +52,7 @@ sub _dne {
 }
 
 sub is_deeply_float {
-    my $tb = Test::More->builder;
+    my $tb = __PACKAGE__->builder;
 
     unless( @_ == 2 or @_ == 3 ) {
         my $msg = <<'WARNING';
@@ -217,7 +216,7 @@ sub _equal_nonrefs {
 
 sub _deep_check {
     my( $e1, $e2 ) = @_;
-    my $tb = Test::More->builder;
+    my $tb = __PACKAGE__->builder;
 
     my $ok = 0;
 
