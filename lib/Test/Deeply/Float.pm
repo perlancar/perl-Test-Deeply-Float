@@ -362,7 +362,16 @@ tolerance is allowed to work around floating point rounding problem.
 
 =head1 SEE ALSO
 
-Based on L<Test::More>'s C<is_deeply()>.
+L<Test::DataCmp>.
 
-L<Test::Number::Delta> and L<Test::Deep>'s C<num()> can also compare floats with
-tolerance, but not in data structures.
+Code is based on L<Test::More>'s C<is_deeply()>.
+
+To compare two floats with tolerance, you can simply do C<< abs($n1 - $n2) <
+$epsilon >> or use one of several modules on CPAN, e.g. L<Number::Tolerant>. For
+testing, there are L<Test::Number::Delta>, L<Test::Approximate>.
+
+To compare two data structures with tolerant float comparison, there is also
+L<Test::Deep> (see C<num()>) with its several extensions e.g.
+L<Test::Approximate>, L<Test::Deep::NumberTolerant>, L<Test::Deep::Fuzzy>. Note
+that you need (or: able) to specify the point(s) in the data structure where you
+want to perform the tolerant comparison at.
