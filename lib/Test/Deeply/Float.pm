@@ -350,6 +350,8 @@ To customize tolerance level:
 
 =head1 DESCRIPTION
 
+B<Deprecation notice:> Deprecated in favor of L<Test::DataCmp>.
+
 This module exports C<is_deeply_float()> which is just like L<Test::More>'s
 C<is_deeply()>, except that when comparing two numbers (ints or floats) a
 tolerance is allowed to work around floating point rounding problem.
